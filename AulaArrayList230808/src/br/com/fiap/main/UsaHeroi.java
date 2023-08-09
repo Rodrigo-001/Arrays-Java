@@ -1,3 +1,5 @@
+/*Programa para praticar conceitos de ArrayList e laço de repetição*/
+/*O programa pede nome, id secreta, poderes e fraquezas de um super herói e imprime as informações na tela*/
 package br.com.fiap.main;
 
 import java.util.ArrayList;
@@ -8,19 +10,7 @@ import br.com.fiap.bean.SuperHeroi;
 
 public class UsaHeroi {
 
-	public static void main(String[] args) {
-		/* declarar e instanciar classe SuperHeroi
-		 * declarar arraysLists
-		 * RECEBER: nome, idSecreta
-		 * laço para rodar programa principal  -----------------
-		 * 		laço para receber poderes (usar "fim" para encerrar)
-		 *  	laço para receber fraquezas (usar "fim" para encerrar)
-		 *  	instanciar ArraysLists
-		 * 		jogar valores via construtor
-		 *  	exibir usando método listaHeroi
-		 *  	(perguntar se deseja continuar repetir os passos, senão encerre
-		 *  	com mensagem de despedida)
-		 * */
+	public static void main(String[] args) {		
 		//variáveis
 		String nome, idSecreta, aux, continuar="sim",encerrar="nao";
 		SuperHeroi heroi = new SuperHeroi();
@@ -56,8 +46,17 @@ public class UsaHeroi {
 					fraquezas.add(aux);
 				}			
 			}
+			
+			//passa valores obtidos para a classe heroi e usa método para imprimi-las.
 			heroi = new SuperHeroi(nome, idSecreta, poderes, fraquezas);
-			heroi.listaHeroi();			
+			heroi.listaHeroi();	
+			
+			//limpa os arraylists e reinicia variavei auxiliar "encerrar".
+			poderes.clear();
+			fraquezas.clear();
+			encerrar = "nao";
+			
+			//encerra ou ou retoma o laço principal
 			continuar = JOptionPane.showInputDialog("Sim - para continuar"
 					+ "\nNão - para encerrar");
 		}
